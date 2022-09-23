@@ -3,6 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+<!--    Specify the page will render in first page-->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>home.html</welcome-file>
@@ -27,8 +29,15 @@
         <url-pattern>/servletResp</url-pattern>
     </servlet-mapping>
 
+<!--    A global variable can get value in any page-->
     <context-param>
         <param-name>jdbc</param-name>
         <param-value>Mysql</param-value>
     </context-param>
+
+<!--    Handle all link page are not in server-->
+    <error-page>
+    <error-code>404</error-code>
+    <location>/handle_error</location>
+    </error-page>
 </web-app>
